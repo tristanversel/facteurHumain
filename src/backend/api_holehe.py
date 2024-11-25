@@ -26,7 +26,7 @@ async def check_email(request: EmailRequest):
 
     try:
         # Exécute Holehe via subprocess
-        result = subprocess.check_output(['holehe', email], text=True)
+        result = subprocess.check_output(['holehe', email, '--only-used'], text=True)
         print(result)
         return {"success": True, "data": result}
     except subprocess.CalledProcessError as e:
